@@ -1,0 +1,25 @@
+.categoryBar {
+    position: absolute;
+    font-size: 30px;
+    top: 5px;
+    right: 5px;
+}
+
+.example-enter {
+    opacity: 0;
+    
+  }
+  .example-enter-active {
+    opacity: 1;
+    transform:translateX(0);
+    transition: opacity 500ms, transform 500ms;
+  }
+  .example-exit {
+    opacity: 1;
+    transform:translateX(0);
+  }
+  .example-exit-active {
+    opacity: 0;
+    
+    transition: opacity 500ms, transform 500ms;
+  }

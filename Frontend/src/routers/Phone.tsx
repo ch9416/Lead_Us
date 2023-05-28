@@ -116,6 +116,120 @@ function Phone() {
         setProducts(infos);
         console.log(products);
     }
+    const Sync_smartphone = async () => {
+        const result = await axios.get("/smartphone");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_smartwatch = async () => {
+        const result = await axios.get("/smartwatch");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_TV = async () => {
+        const result = await axios.get("/TV");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_speaker = async () => {
+        const result = await axios.get("/speaker");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_headphone = async () => {
+        const result = await axios.get("/headphone");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_earphone = async () => {
+        const result = await axios.get("/earphone");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_desktop = async () => {
+        const result = await axios.get("/desktop");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_gaming = async () => {
+        const result = await axios.get("/gaming");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_refrigerator = async () => {
+        const result = await axios.get("/refrigerator");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_washmachine = async () => {
+        const result = await axios.get("/washmachine");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_robotcleaner = async () => {
+        const result = await axios.get("/robotcleaner");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_digital = async () => {
+        const result = await axios.get("/digital");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+    }
+    const Sync_keyboard = async () => {
+        const result = await axios.get("/keyboard");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+
+    }
+    const Sync_mouse = async () => {
+        const result = await axios.get("/mouse");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+
+    }
+    const Sync_phone_acce = async () => {
+        const result = await axios.get("/phone_acce");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+
+    }
+    const Sync_relativePC = async () => {
+        const result = await axios.get("/relativePC");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+
+    }
+    const Sync_aircon = async () => {
+        const result = await axios.get("/aircon");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+
+    }
+    const Sync_kickboard = async () => {
+        const result = await axios.get("/kickboard");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+
+    }
 
     //상품리스트 출력
     const pro_for = (arr: any) => {
@@ -134,7 +248,7 @@ function Phone() {
                     <p>반품가격</p>
                     {arr[i].return_price}<br />
                     <p>반품할인율</p>
-                    {arr[i].return_percent }<br />
+                    {arr[i].return_percent }<br /><hr />
                 </div>
             );
         }
@@ -174,24 +288,24 @@ function Phone() {
             <CategoryMenu>
                 <CategoryOl>
                     <List><div onClick={Sync_notebook}>노트북</div></List>
-                    <List>스마트폰</List>
-                    <List>스마트워치</List>
-                    <List>TV</List>
-                    <List>스피커</List>
-                    <List>헤드폰</List>
-                    <List>이어폰</List>
-                    <List>데스크탑</List>
-                    <List>게이밍</List>
-                    <List>냉장고</List>
-                    <List>세탁기</List>
-                    <List>로봇청소기</List>
-                    <List>가전/디지털</List>
-                    <List>키보드</List>
-                    <List>마우스</List>
-                    <List>폰악세서리</List>
-                    <List>PC주변기기</List>
-                    <List>에어컨</List>
-                    <List>킥보드</List>
+                    <List><div onClick={Sync_smartphone}>스마트폰</div></List>
+                    <List><div onClick={Sync_smartwatch}>스마트워치</div></List>
+                    <List><div onClick={Sync_TV}>TV</div></List>
+                    <List><div onClick={Sync_speaker}>스피커</div></List>
+                    <List><div onClick={Sync_headphone}>헤드폰</div></List>
+                    <List><div onClick={Sync_earphone}>이어폰</div></List>
+                    <List><div onClick={Sync_desktop}>데스크탑</div></List>
+                    <List><div onClick={Sync_gaming}>게이밍</div></List>
+                    <List><div onClick={Sync_refrigerator}>냉장고</div></List>
+                    <List><div onClick={Sync_washmachine}>세탁기</div></List>
+                    <List><div onClick={Sync_robotcleaner}>로봇청소기</div></List>
+                    <List><div onClick={Sync_digital}>가전/디지털</div></List>
+                    <List><div onClick={Sync_keyboard}>키보드</div></List>
+                    <List><div onClick={Sync_mouse}>마우스</div></List>
+                    <List><div onClick={Sync_phone_acce}>폰악세서리</div></List>
+                    <List><div onClick={Sync_relativePC}>PC주변기기</div></List>
+                    <List><div onClick={Sync_aircon}>에어컨</div></List>
+                    <List><div onClick={Sync_kickboard}>킥보드</div></List>
                 </CategoryOl>
             </CategoryMenu>
             

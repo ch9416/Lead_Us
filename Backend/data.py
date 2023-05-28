@@ -18,7 +18,7 @@ item = ["노트북", "스마트폰", "스마트워치", "TV", " 스피커", "헤
 # 크롬 옵션 설정
 
 
-conn = pymysql.connect(host='localhost', user='root', password='271042as', db='mydb', charset='utf8')
+conn = pymysql.connect(host='localhost', user='root', password='!aa47287846', db='mydb', charset='utf8')
 cur = conn.cursor()
 now = time
 

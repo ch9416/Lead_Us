@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Frontdend",
-    "\\Frontdend\\public",
-    "\\Frontdend\\src",
-    "\\Frontdend\\src\\routers"
+    "\\Frontend",
+    "\\Frontend\\src",
+    "\\Frontend\\src\\routers"
   ],
-  "SelectedNode": "\\Frontdend\\src\\routers\\Phone.tsx",
+  "SelectedNode": "\\Frontend\\src\\routers\\Phone.tsx",
   "PreviewInSolutionExplorer": false
 }

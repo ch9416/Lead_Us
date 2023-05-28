@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 
 const CategoryMenu = styled.div`
     z-index: 2;
@@ -35,6 +38,7 @@ const List = styled.li`
 
 
 function CategoryList() {
+
     return (
         <CategoryMenu>
             <CategoryOl>
@@ -57,8 +61,10 @@ function CategoryList() {
                 <List>PC주변기기</List>
                 <List>에어컨</List>
                 <List>킥보드</List>
-             </CategoryOl>
-             </CategoryMenu>
+            </CategoryOl>
+        </CategoryMenu>
+
+
     )
  
 };

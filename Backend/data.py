@@ -9,9 +9,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException, TimeoutException
+import pymysql
+from flask import Flask, render_template, request
+
 
 # 검색어 입력
-i = input("검색어를 입력하세요 : ")
+i = "노트북"
 # 크롬 옵션 설정
 chrome_options = Options()
 chrome_options.add_argument("--disable-blink-features=AutomationControlled")
@@ -86,8 +89,15 @@ while True:
                         used_product_info_data.append("할인 전 가격 정보 없음")
                 except IndexError:
                     used_product_info_data.extend(["정보 없음", "할인 전 가격 정보 없음"])
+            else:
+                used_product_info_data.extend(["정보 없음", "할인 전 가격 정보 없음"])
 
-            data.append([product_name, product_original_price, product_discounted_price, discount_percent_str, product_link] + used_product_info_data)
+            try:
+                image_element = product.find_element(By.CLASS_NAME, "image")
+                image_url = image_element.find_element(By.TAG_NAME, "img").get_attribute("src")
+            except NoSuchElementException:
+                image_url = "이미지 없음"
+            data.append([product_name, product_original_price, product_discounted_price, discount_percent_str, product_link, image_url] + used_product_info_data)
 
         # 다음 버튼 클릭
         next_button = driver.find_element(By.CSS_SELECTOR, ".btn-next")
@@ -95,7 +105,8 @@ while True:
             break
         else:
             time.sleep(3)
-            next_button.click()
+            # next_button.click()
+            break
 
         # 페이지 로딩 대기
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "search-product-link")))
@@ -109,11 +120,39 @@ while True:
 # 크롬 드라이버 종료
 driver.quit()
 
-# 데이터를 DataFrame으로 변환
-df = pd.DataFrame(data, columns=["상품명", "할인 전 가격", "할인된 가격", "할인 퍼센트", "링크", "반품 상품 가격", "반품 할인 퍼센트"])
 
-# CSV 파일로 저장 (UTF-8 인코딩)
-csv_filename = "coupang_products.csv"
-df.to_csv(csv_filename, index=False, encoding="utf-8-sig")
+conn = pymysql.connect(host='localhost', user='root', password='!aa47287846', db='mydb', charset='utf8')
+cur = conn.cursor()
+now = time
 
-print(f"데이터가 {csv_filename} 파일로 저장되었습니다.")
+cur.execute("truncate now_selling")
+
+for i in range(len(data)):
+    try:
+        cur.execute("insert into products (name, link, img) values (%s, %s, %s)", (data[i][0], data[i][4], data[i][5]))
+    except Exception as es:
+        pass
+
+for i in range(len(data)):
+    try:
+        cur.execute("insert into now_selling (products_name, old_price, cur_price, percent, return_price, return_percent) values (%s, %s, %s, %s, %s, %s)", (data[i][0], data[i][1], data[i][2], data[i][3], data[i][6], data[i][7]))
+    except Exception as es:
+        pass
+
+for i in range(len(data)):
+    try:
+        cur.execute("insert into time (products_name, price, time) values (%s, %s, %s)", (data[i][0], data[i][2], now.strftime('%Y-%m-%d')))
+    except Exception as es:
+        cur.execute("select price from time where products_name = %s and time = %s", (data[i][0], now.strftime('%Y-%m-%d')))
+        np = cur.fetchall()
+        if int(np[0][0].replace(',', '').strip()) > int(data[i][2].replace(',', '').strip()):
+            cur.execute("update time set price = %s where products_name = %s and time = %s", (data[i][0], data[i][2], now.strftime('%Y-%m-%d')))
+
+for i in range(len(data)):
+    try:
+        cur.execute("insert into category (products_name, category) values (%s, %s)", (data[i][0], '노트북'))
+    except Exception as es:
+        pass
+
+conn.commit()
+conn.close()

@@ -1,3 +1,9 @@
+@import "./routers/Card.css";
+
+a {
+  text-decoration: none;
+}
+
 .categoryBar {
     position: absolute;
     font-size: 30px;

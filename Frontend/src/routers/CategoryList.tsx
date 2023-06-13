@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 
 const CategoryMenu = styled.div`
@@ -37,36 +38,35 @@ const List = styled.li`
 `
 
 
+
 function CategoryList() {
-
     return (
-        <CategoryMenu>
-            <CategoryOl>
-                <List>노트북</List>
-                <List>스마트폰</List>
-                <List>스마트워치</List>
-                <List>TV</List>
-                <List>스피커</List>
-                <List>헤드폰</List>
-                <List>이어폰</List>
-                <List>데스크탑</List>
-                <List>게이밍</List>
-                <List>냉장고</List>
-                <List>세탁기</List>
-                <List>로봇청소기</List>
-                <List>가전/디지털</List>
-                <List>키보드</List>
-                <List>마우스</List>
-                <List>폰악세서리</List>
-                <List>PC주변기기</List>
-                <List>에어컨</List>
-                <List>킥보드</List>
-            </CategoryOl>
-        </CategoryMenu>
-
-
+       
+            <CategoryMenu>
+                <CategoryOl>
+                    <List><Link to={"/notebook"}>노트북</Link></List>
+                    <List><Link to={"/smartphone"}>스마트폰</Link></List>
+                    <List><Link to={"/smartwatch"}>스마트워치</Link></List>
+                    <List><Link to={"/TV"}>TV</Link></List>
+                    <List><Link to={"/speaker"}>스피커</Link></List>
+                    <List><Link to={"/headphonek"}>헤드폰</Link></List>
+                    <List><Link to={"/earphone"}>이어폰</Link></List>
+                    <List><Link to={"/desktop"}>데스크탑</Link></List>
+                    <List><Link to={"/gaming"}>게이밍</Link></List>
+                    <List><Link to={"/refrigerator"}>냉장고</Link></List>
+                    <List><Link to={"/washmachine"}>세탁기</Link></List>
+                    <List><Link to={"/robotcleaner"}>로봇청소기</Link></List>
+                    <List><Link to={"/digital"}>가전/디지털</Link></List>
+                    <List><Link to={"/keyboard"}>키보드</Link></List>
+                    <List><Link to={"/mouse"}>마우스</Link></List>
+                    <List><Link to={"/phone_acce"}>폰악세서리</Link></List>
+                    <List><Link to={"/relativePC"}>PC주변기기</Link></List>
+                    <List><Link to={"/aircon"}>에어컨</Link></List>
+                    <List><Link to={"/kickboard"}>킥보드</Link></List>
+                </CategoryOl>
+            </CategoryMenu>
+       
     )
- 
 };
 
 export default CategoryList 

@@ -11,9 +11,10 @@ a {
     right: 5px;
 }
 
+
+/* 햄버거 탭 css */
 .example-enter {
     opacity: 0;
-    
   }
   .example-enter-active {
     opacity: 1;
@@ -26,6 +27,6 @@ a {
   }
   .example-exit-active {
     opacity: 0;
-    
     transition: opacity 500ms, transform 500ms;
   }
+

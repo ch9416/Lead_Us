@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from "styled-components";
-import Base from './Base';
+import Base from '../routers/Base';
 
 const Container = styled.div`
     width: 100vw;

@@ -3,8 +3,8 @@ import CategoryList from "./CategoryList";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
-import { Transition, CSSTransition, SwitchTransition, TransitionGroup } from "react-transition-group";
-import { useState, useEffect } from 'react';
+import { CSSTransition } from "react-transition-group";
+import { useState } from 'react';
 
 const NavContainer = styled.div`
     width: 100vw;
@@ -22,7 +22,7 @@ const Logo = styled.a`
 
 const SearchingContainer = styled.div`
     width: 100%;
-    height: 10%;
+    height: 70px;
     display: flex;
     justify-content: center;
     padding: 0;

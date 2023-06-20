@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import CategoryList from "./CategoryList";
-import Detail from "./Detail";
+import Detail from "../partials/Detail";
 import { useState, useEffect } from 'react';
 import { Transition, CSSTransition, SwitchTransition, TransitionGroup } from "react-transition-group";
 import axios from 'axios';
@@ -186,40 +186,7 @@ function Phone() {
         <Container>
             <Base />
 
-            {/* 지금 현재 잘나가는 상품 같은 거 넣으면 될듯 */}
-
-            {/* <CategoryMenu>
-                <CategoryOl> */}
-                
-                    {/* 변수처리 */}
-                    {/* <List><div onClick={Sync_notebook}>노트북</div></List> */}
-                    {/* <List><div onClick={Sync_smartphone}>스마트폰</div></List>
-                    <List><div onClick={Sync_smartwatch}>스마트워치</div></List>
-                    <List><div onClick={Sync_TV}>TV</div></List>
-                    <List><div onClick={Sync_speaker}>스피커</div></List>
-                    <List><div onClick={Sync_headphone}>헤드폰</div></List>
-                    <List><div onClick={Sync_earphone}>이어폰</div></List>
-                    <List><div onClick={Sync_desktop}>데스크탑</div></List>
-                    <List><div onClick={Sync_gaming}>게이밍</div></List>
-                    <List><div onClick={Sync_refrigerator}>냉장고</div></List>
-                    <List><div onClick={Sync_washmachine}>세탁기</div></List>
-                    <List><div onClick={Sync_robotcleaner}>로봇청소기</div></List>
-                    <List><div onClick={Sync_digital}>가전/디지털</div></List>
-                    <List><div onClick={Sync_keyboard}>키보드</div></List>
-                    <List><div onClick={Sync_mouse}>마우스</div></List>
-                    <List><div onClick={Sync_phone_acce}>폰악세서리</div></List>
-                    <List><div onClick={Sync_relativePC}>PC주변기기</div></List>
-                    <List><div onClick={Sync_aircon}>에어컨</div></List>
-                    <List><div onClick={Sync_kickboard}>킥보드</div></List> */}
-                {/* </CategoryOl>
-            </CategoryMenu> */}
-            
-            {/* <div className="itemContainer">
-                {
-                    pro_for(products)
-                }
-            </div> */}
-            {/* <Detail /> */}
+           
             </Container>  
     )
 }

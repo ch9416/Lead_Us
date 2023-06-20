@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import styled from "styled-components";
 import Base from './Base';
 import { useParams } from "react-router-dom"
-import ProductCard from './ProductCard';
+import Recommend from './Recommend';
+
 
 const Container = styled.div`
     width: 100vw;
@@ -26,28 +27,26 @@ interface IProduct {
 
 function Practice() {
     const params = useParams();
-    const product = params.product
-    const [loading, setLoading] =useState(true);
+    const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState<IProduct[]>([])
-    const getProducts = async() => {
-        const json = await(
-            await fetch(
-                `/${product}`
-            )
-        ).json()
-        setProducts(json)
-        console.log(json)
-        setLoading(false)
-    }
-
+    const product = params.product
+    const getProducts = useCallback(async () => {
+        const json = await (await fetch(`/${product}`)).json();
+        setProducts(json);
+        console.log(json);
+        setLoading(false);
+    }, [product]);
+    
     useEffect(() => {
         getProducts();
-      } , []);
+    }, [getProducts]);
     
-
+    
     return (  
     <Container>
         <Base />
+            <Recommend />
+
 
         {loading ? <h1>Loading...</h1> : 
             <div className="itemContainer">

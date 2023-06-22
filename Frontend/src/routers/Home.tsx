@@ -1,7 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
 import styled from "styled-components";
 import Base from './Base';
-import { useParams } from "react-router-dom"
 import Recommend from './Recommend';
 
 

@@ -22,6 +22,8 @@ interface IProduct {
     precent: string,
     return_percent: string,
     return_price: string,
+    t_price: string,
+    t_date: string,
 }
 
 
@@ -57,9 +59,11 @@ function Practice() {
                         <h1 className="itemName">{product.name}</h1>
                     </div>
                     <div className="itemMetaData">
-                    <p className="originalPrice">{product.old_price}</p>
-                    <p className="discountRate">{product.precent}</p>
-                    <span className="currentPrice">{product.cur_price}원</span>
+                        <p className="originalPrice">{product.old_price}</p>
+                        <p className="discountRate">{product.precent}</p>
+                        <span className="currentPrice">{product.cur_price}원</span>
+                        <p className="originalPrice">{product.t_date}</p>
+                        <p className="originalPrice">{product.t_price}</p>
                     </div>
                 </div>
                 )}

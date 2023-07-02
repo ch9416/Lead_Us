@@ -1,4 +1,5 @@
-﻿import styled from "styled-components";
+﻿
+import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import CategoryList from "./CategoryList";
@@ -8,6 +9,7 @@ import { Transition, CSSTransition, SwitchTransition, TransitionGroup } from "re
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import Base from "./Base";
+import { useParams } from "react-router-dom";
 
 
 const Container = styled.div`
@@ -19,6 +21,7 @@ const Container = styled.div`
 `
 
 function Phone() {
+    /*
     //플라스크에서 데이터 받기, 동기적
     const loading: any = ['로딩중'];
     const [products, setProducts] = useState(loading);
@@ -160,14 +163,15 @@ function Phone() {
                         <p className="discountRate">할인율</p>
                         <p>{arr[i].percent}</p><br />
                         <span className="currentPrice">{arr[i].cur_price}원</span>
-                        {/* <p className="backPrice">반품가격</p>
+                        { <p className="backPrice">반품가격</p>
                         {arr[i].return_price}<br />
                         <p className="backPriceRate">반품할인율</p>
-                        {arr[i].return_percent }<br /> */}
+                        {arr[i].return_percent }<br /> }
                     </div>
                 </div>
             );
         }
+        
         return result;
     }
 
@@ -181,14 +185,34 @@ function Phone() {
             data => console.log(data)
         )
     }, [])
+    */
+   
+    const [products, setProducts] = useState()
+    const params = useParams();
+    const Search = async () => {
+        const result = await axios.get("/search");
+        const infos = result.data;
+        setProducts(infos);
+        console.log(products);
+        console.log(infos);
+        console.log(result);
+    }
 
+    useEffect(() => {
+        Search();
+    }, []);
     return (
         <Container>
-            <Base />
+            <form action="/search" method="post">
+                <p><input type="text" ></input></p>
+                <p><input type="submit" value="search" /></p>
+            </form>
 
+  
            
             </Container>  
     )
+
 }
 
 export default Phone;

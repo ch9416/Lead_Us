@@ -24,6 +24,7 @@ interface IProduct {
     return_price: string,
     t_price: string,
     t_date: string,
+    id: string,
 }
 
 
@@ -55,8 +56,8 @@ function Practice() {
                 {products.map((product, index) => 
                 <div className="itemBox" key={index}>
                     <div className="itemMainData">
-                        <img className="itemImg" src={product.img} alt="itemImg" />
-                        <h1 className="itemName">{product.name}</h1>
+                            <img className="itemImg" src={product.img} alt="itemImg" />
+                            <h1 className="itemName">{product.id}: {product.name}</h1>
                     </div>
                     <div className="itemMetaData">
                         <p className="originalPrice">{product.old_price}</p>

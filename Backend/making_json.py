@@ -14,7 +14,8 @@ for i in range(len(item)):
     f = open('./Jsons/%d.json' %i, 'w')
     cur.execute('select c.category, p.img, p.name, n.cur_price, n.old_price, n.percent, n.return_price, n.return_percent from now_selling n, products p, category c where n.products_name = p.name and p.name = c.products_name and c.category = %s', (item[i]))
     res = cur.fetchall()
-    globals()[item_en[i]], category, img, name, cur_price, old_price, percent, return_price, return_percent, t_date, t_price = [], [], [], [], [], [], [], [], [], [], []
+    globals()[item_en[i]], category, img, name, cur_price, old_price, percent, return_price, return_percent, t_date, t_price, id = [], [], [], [], [], [], [], [], [], [], [], []
+    num = 0
     for x in res:
         globals()[item_en[i]].append({'category' : x[0], 'img' : x[1], 'name' : x[2], 'cur_price' : x[3], 'old_price' : x[4], 'percent' : x[5], 'return_price' : x[6], 'return_percent': x[7]})
         category.append(x[0])
@@ -24,7 +25,9 @@ for i in range(len(item)):
         old_price.append(x[4])
         percent.append(x[5])
         return_price.append(x[6])
-        return_percent.append(x[7])#
+        return_percent.append(x[7])
+        id.append(num)
+        num += 1
 
 #json에 시간별 가격 추가
     for y in name:
@@ -40,8 +43,8 @@ for i in range(len(item)):
 
 
 
-    df = pd.DataFrame(zip(name, img, cur_price, old_price, category, percent, return_price, return_percent, t_price, t_date))
-    df.columns = ['name', 'img', 'cur_price', 'old_price', 'category', 'percent', 'return_price', 'return_percent', 't_price', 't_date']
+    df = pd.DataFrame(zip(id, name, img, cur_price, old_price, category, percent, return_price, return_percent, t_price, t_date))
+    df.columns = ['id', 'name', 'img', 'cur_price', 'old_price', 'category', 'percent', 'return_price', 'return_percent', 't_price', 't_date']
     globals()[item_en[i]+'_js'] = df.to_json(orient='records', force_ascii=False)
     json.dump(globals()[item_en[i]+'_js'], f)
     f.close()

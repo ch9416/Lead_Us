@@ -138,5 +138,11 @@ def kickboard():
     return data
 
 
+@app.route('/search')
+def search():
+    key = request.args.get('key', '243')
+    print(key)
+    return "key = " + key
+
 if __name__ == "__main__":
     app.run(debug=True)

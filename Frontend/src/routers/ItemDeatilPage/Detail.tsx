@@ -26,6 +26,10 @@ function Detail() {
     const params = useParams();
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState<IProduct[]>([])
+    const [graphOpen, setGraphOpen] = useState<boolean>(false)
+    const handleGraph = () => {
+        setGraphOpen((prev) => !prev)
+    }
     const product = params.product
     const getProducts = useCallback(async () => {
         const json = await (await fetch(`/${product}`)).json();
@@ -49,15 +53,19 @@ function Detail() {
                             <img className="detail__img" src={product.img} alt="itemImg" />
                             <h1 className="detail__name">{product.name}</h1>
                         </div>
-                        <div className="detail__metadata">
-                            <div className="detail__discount">
-                                <span>-{product.percent}</span>
-                            </div>
-                            <div className="detail__price">
-                                <span>{product.old_price}원</span>
-                                <span>{product.cur_price}원</span>  
-                            </div>
+                        <div className="detail__metadata" style={ graphOpen ? {height: "270px", transition: "height 0.3s ease"} : {height: "70px", transition: "height 0.3s ease"} } onClick={handleGraph}>
+                        
+                                <div className="detail__discount">
+                                    <span>-{product.percent}</span>
+                                </div>
+                                <div className="detail__price">
+                                    <span>{product.old_price}원</span>
+                                    <span>{product.cur_price}원</span>  
+                                </div>
+                            
+                            
                         </div>
+                        
                     </div>
                     )}
                 </div>}

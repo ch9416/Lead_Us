@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CategoryList from "./CategoryList";
+import CategoryList from "./CategoryTap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
@@ -26,6 +26,7 @@ const SearchingContainer = styled.div`
     display: flex;
     justify-content: center;
     padding: 0;
+    margin-bottom: 20px;
 `
 
 const SearchingInput = styled.input`

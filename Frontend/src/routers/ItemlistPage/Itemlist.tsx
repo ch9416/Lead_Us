@@ -1,8 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import styled from "styled-components";
-import Base from './Base';
+import Base from '../HomePage/HomeComponents/Base';
 import { useParams } from "react-router-dom"
-import Recommend from './Recommend';
 
 
 const Container = styled.div`
@@ -19,13 +18,13 @@ interface IProduct {
     name: string,
     img: string,
     old_price: string,
-    precent: string,
+    percent: string,
     return_percent: string,
     return_price: string,
 }
 
 
-function Practice() {
+function Itemlist() {
     const params = useParams();
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState<IProduct[]>([])
@@ -45,9 +44,7 @@ function Practice() {
     return (  
     <Container>
         <Base />
-            <Recommend />
-
-
+            
         {loading ? <h1>Loading...</h1> : 
             <div className="itemContainer">
                 {products.map((product, index) => 
@@ -58,7 +55,7 @@ function Practice() {
                     </div>
                     <div className="itemMetaData">
                     <p className="originalPrice">{product.old_price}</p>
-                    <p className="discountRate">{product.precent}</p>
+                    <p className="discountRate">{product.percent}</p>
                     <span className="currentPrice">{product.cur_price}원</span>
                     </div>
                 </div>
@@ -68,4 +65,4 @@ function Practice() {
     </Container>   
     )
     }
-export default Practice;
+export default Itemlist;

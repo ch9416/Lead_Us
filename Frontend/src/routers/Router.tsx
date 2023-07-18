@@ -4,6 +4,7 @@ import Detail from "./Detail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Phone from "./Phone";
 
+
 function Router(){
     return (
         <BrowserRouter>

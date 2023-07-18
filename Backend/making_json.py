@@ -49,6 +49,5 @@ for i in range(len(item)):
     json.dump(globals()[item_en[i]+'_js'], f)
     f.close()
 
-
 conn.commit()
 conn.close()

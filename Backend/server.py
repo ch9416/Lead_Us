@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import json
+import pymysql
 
 app = Flask(__name__)
 
@@ -138,11 +139,25 @@ def kickboard():
     return data
 
 
-@app.route('/search')
+@app.route('/search', methods=['GET', 'POST'])
 def search():
-    key = request.args.get('key', '243')
-    print(key)
-    return "key = " + key
+    data = request.get_json()
+    gg = data['data']
+    return redirect(url_for('search2',gg=gg))
+
+
+@app.route('/search/<gg>', methods=['GET', 'POST'])
+def search2(gg):
+
+    return gg
+
+
+@app.route('/chuchun')
+def chuchun():
+    f = open("./Jsons/19.json", 'r')
+    data = json.load(f)
+    f.close()
+    return data
 
 if __name__ == "__main__":
     app.run(debug=True)

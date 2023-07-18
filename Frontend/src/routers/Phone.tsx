@@ -10,6 +10,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import Base from "./Base";
 import { useParams } from "react-router-dom";
+import React, { useRef } from 'react';
 
 
 const Container = styled.div`
@@ -186,26 +187,30 @@ function Phone() {
         )
     }, [])
     */
-   
-    const [products, setProducts] = useState()
-    const params = useParams();
-    const Search = async () => {
-        const result = await axios.get("/search");
-        const infos = result.data;
-        setProducts(infos);
-        console.log(products);
-        console.log(infos);
-        console.log(result);
-    }
+    const todoTextInputRef = useRef<HTMLInputElement>(null);
+    const submitHandler = (event: React.FormEvent) => {
+        event.preventDefault();
+        const enteredText = todoTextInputRef.current!.value;
+  
+        axios.post('/search', {
+            data: enteredText
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
 
-    useEffect(() => {
-        Search();
-    }, []);
+
     return (
         <Container>
-            <form action="/search" method="post">
-                <p><input type="text" ></input></p>
-                <p><input type="submit" value="search" /></p>
+
+   
+            <form onSubmit={submitHandler}>
+                <input type='text' ref={todoTextInputRef} />
+                <button>Search</button>
             </form>
 
   

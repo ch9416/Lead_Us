@@ -3,6 +3,7 @@ import Detail from "./ItemDeatilPage/Detail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Itemlist from "./ItemlistPage/Itemlist";
 
+
 function Router(){
     return (
         <BrowserRouter>

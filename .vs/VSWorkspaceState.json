@@ -3,8 +3,9 @@
     "",
     "\\Frontend",
     "\\Frontend\\src",
+    "\\Frontend\\src\\partials",
     "\\Frontend\\src\\routers"
   ],
-  "SelectedNode": "\\Frontend\\src\\routers\\Phone.tsx",
+  "SelectedNode": "\\Frontend\\src\\routers\\Main.tsx",
   "PreviewInSolutionExplorer": false
 }

@@ -21,6 +21,9 @@ interface IProduct {
     percent: string,
     return_percent: string,
     return_price: string,
+    t_price: string,
+    t_date: string,
+    id: string,
 }
 
 
@@ -50,13 +53,18 @@ function Itemlist() {
                 {products.map((product, index) => 
                 <div className="itemBox" key={index}>
                     <div className="itemMainData">
-                        <img className="itemImg" src={product.img} alt="itemImg" />
-                        <h1 className="itemName">{product.name}</h1>
+                            <img className="itemImg" src={product.img} alt="itemImg" />
+                            <h1 className="itemName">{product.id}: {product.name}</h1>
                     </div>
                     <div className="itemMetaData">
                     <p className="originalPrice">{product.old_price}</p>
                     <p className="discountRate">{product.percent}</p>
                     <span className="currentPrice">{product.cur_price}원</span>
+                        <p className="originalPrice">{product.old_price}</p>
+                        <p className="discountRate">{product.percent}</p>
+                        <span className="currentPrice">{product.cur_price}원</span>
+                        <p className="originalPrice">{product.t_date}</p>
+                        <p className="originalPrice">{product.t_price}</p>
                     </div>
                 </div>
                 )}

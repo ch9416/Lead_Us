@@ -1,0 +1,32 @@
+.itemContainer__rec {
+    display: flex;
+    width: 1000vw;
+    height: 100vh;
+    padding: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    
+};
+
+
+.itemBox__rec {
+    background-color: #2B2A4C;
+    padding: 10px;
+    color: whitesmoke;
+    display: flex;
+    float: left;
+    width: 100vw;
+    flex-direction: column;
+    margin: 5px;
+    border-radius: 20px;
+    height: 140px;
+};
+
+/* carousel css */
+
+.carouselBox {
+    margin-top: 20px;
+    height: 200px;
+}
+
+

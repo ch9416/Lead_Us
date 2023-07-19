@@ -1,5 +1,5 @@
 import Home from "./HomePage/Home";
-import Detail from "./ItemDeatilPage/Detail";
+import Detail from "./ItemDetailPage/Detail";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Itemlist from "./ItemlistPage/Itemlist";
 

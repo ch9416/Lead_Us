@@ -6,9 +6,6 @@
     padding: 20px;
 }
 
-.detail
-
-
 .detail__box {
     display: flex;
     flex-direction: column;

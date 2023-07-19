@@ -4,6 +4,7 @@
     height: 300%;
     padding: 10px;
     align-items: center;
+    
 }
 
 .itemBox {
@@ -11,11 +12,10 @@
     padding: 10px;
     color: whitesmoke;
     display: flex;
-    width: 390px;
+    width: 99%;
     flex-direction: column;
     margin: 5px;
     border-radius: 20px;
-    width: 99%;
     height: 140px;
 }
 

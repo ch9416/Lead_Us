@@ -4,7 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c74501c2-69de-4f04-87c3-39204d201c6a" name="Changes" comment="" />
+    <list default="true" id="c74501c2-69de-4f04-87c3-39204d201c6a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/0.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/1.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/10.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/10.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/11.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/11.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/12.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/12.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/13.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/13.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/14.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/14.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/15.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/15.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/16.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/16.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/17.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/17.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/18.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/18.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/3..json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/4.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/5.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/6.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/6.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/7.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/7.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Jsons/9.json" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Jsons/9.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/src/routers/ItemlistPage/Itemlist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/src/routers/ItemlistPage/Itemlist.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,14 +52,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/user/Documents/GitHub/Lead_Us"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kes/Desktop/Universe/Lead_Us&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\Documents\GitHub\Lead_Us\Backend" />

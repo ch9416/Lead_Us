@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import styled from "styled-components";
 import Base from "../HomePage/HomeComponents/Base";
 import { useParams } from "react-router-dom";
+import Chart from "react-apexcharts";
 
 const Container = styled.div`
   width: 100vw;
@@ -20,8 +21,8 @@ interface IProduct {
   percent: string;
   return_percent: string;
   return_price: string;
-  t_price: string;
-  t_date: string;
+  t_price: any;
+  t_date: any;
   id: string;
 }
 
@@ -71,15 +72,25 @@ function Itemlist() {
         <div className="itemContainer">
           {products.map((product, index) => (
             <div
-            className="itemBox"
-            key={index}
-            style={
-              graphOpen
-                ? { height: clickedIndexes.includes(index) ? "280px" : "140px", transition: "height 0.3s ease" }
-                : { height: clickedIndexes.includes(index) ? "280px" : "140px", transition: "height 0.3s ease" }
-            }
-            onClick={() => handleGraph(index)}
-          >
+              className="itemBox"
+              key={index}
+              style={
+                graphOpen
+                  ? {
+                      height: clickedIndexes.includes(index)
+                        ? "280px"
+                        : "140px",
+                      transition: "height 0.3s ease",
+                    }
+                  : {
+                      height: clickedIndexes.includes(index)
+                        ? "280px"
+                        : "140px",
+                      transition: "height 0.3s ease",
+                    }
+              }
+              onClick={() => handleGraph(index)}
+            >
               <div className="itemMainData">
                 <img className="itemImg" src={product.img} alt="itemImg" />
                 <h1 className="itemName">
@@ -90,6 +101,25 @@ function Itemlist() {
                 <p className="originalPrice">{product.old_price}</p>
                 <p className="discountRate">{product.percent}</p>
                 <span className="currentPrice">{product.cur_price}원</span>
+              </div>
+              <div>
+                {graphOpen ? (
+                  <Chart
+                    type="line"
+                    series={[
+                      {
+                        name: "price",
+                        data: product.t_price,
+                      },
+                    ]}
+                    options={{
+                      chart: {
+                        height: 100,
+                        width: 100,
+                      },
+                    }}
+                  />
+                ) : null}
               </div>
             </div>
           ))}

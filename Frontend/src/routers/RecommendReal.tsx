@@ -4,7 +4,7 @@ import "./Recommendation.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation, Pagination } from 'swiper/modules';
-
+import Chart from "react-apexcharts";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
@@ -37,8 +37,8 @@ interface IProduct {
     percent: string,
     return_percent: string,
     return_price: string,
-    t_price: string,
-    t_date: string,
+    t_price: any,
+    t_date: any,
     id: string,
 }
 
@@ -62,7 +62,43 @@ function Recommend() {
   }, []);
 
   return (
-    <h1>hellop</h1>
+    <div>
+      <h1>hellop</h1>
+      {products.map(product => 
+      <Chart
+    type="line"
+    series={[
+      {
+        name: "price",
+        data: product.t_price,
+      },
+    ]}
+    options={{
+      chart: {
+        height: 100,
+        width: 100,
+        toolbar: {
+          show: false,
+        }
+      },
+      xaxis: {
+        categories: product.t_date
+      },
+      grid: {
+        show: false
+      },
+      stroke: {
+        curve: "smooth",
+        width: 5,
+      }
+    }}
+  />
+
+      )}
+      
+    </div>
+    
+    
     // <RecommendContainer>
     //   {loading ? (
     //     <h1>Loading...</h1>
@@ -97,6 +133,7 @@ function Recommend() {
       
     //   }
     // </RecommendContainer>
+    
   );
 }
 

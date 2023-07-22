@@ -12,6 +12,7 @@ const Container = styled.div`
   align-items: center;
 `;
 
+
 interface IProduct {
   category: string;
   cur_price: string;
@@ -21,8 +22,8 @@ interface IProduct {
   percent: string;
   return_percent: string;
   return_price: string;
-  t_price: any;
-  t_date: any;
+  t_price: Array<string>;
+  t_date: Array<string>;
   id: string;
 }
 
@@ -77,17 +78,17 @@ function Itemlist() {
               style={
                 graphOpen
                   ? {
-                      height: clickedIndexes.includes(index)
-                        ? "280px"
-                        : "140px",
-                      transition: "height 0.3s ease",
-                    }
+                    height: clickedIndexes.includes(index)
+                      ? "370px"
+                      : "140px",
+                    transition: "height 0.3s ease",
+                  }
                   : {
-                      height: clickedIndexes.includes(index)
-                        ? "280px"
-                        : "140px",
-                      transition: "height 0.3s ease",
-                    }
+                    height: clickedIndexes.includes(index)
+                      ? "370px"
+                      : "140px",
+                    transition: "height 0.3s ease",
+                  }
               }
               onClick={() => handleGraph(index)}
             >
@@ -102,24 +103,92 @@ function Itemlist() {
                 <p className="discountRate">{product.percent}</p>
                 <span className="currentPrice">{product.cur_price}원</span>
               </div>
-              <div>
-                {graphOpen ? (
-                  <Chart
-                    type="line"
-                    series={[
-                      {
-                        name: "price",
-                        data: product.t_price,
+              <div className="chartBox">
+                {clickedIndexes.includes(index) ? <Chart
+                  type="line"
+                  series={[
+                    {
+                      name: "price",
+                      data: product.t_price,
+                    },
+                  ]}
+                  options={{
+                    chart: {
+
+
+                      toolbar: {
+                        show: false,
+                      }
+                    },
+                    xaxis: {
+                      categories: product.t_date,
+                      axisBorder: {
+                        show: false,
                       },
-                    ]}
-                    options={{
-                      chart: {
-                        height: 100,
-                        width: 100,
+                      labels: {
+                        style: {
+                          colors: "tomato",
+                        }
+                      }
+                    },
+                    yaxis: {
+                      tickAmount: 4,
+                      labels: {
+                        style: {
+                          colors: "tomato",
+                        },
+                        formatter: function (value) {
+                          return value;
+                        }
+                      }
+                    },
+                    markers: {
+                      colors: "tomato"
+                    },
+                    tooltip: {
+                      theme: "dark",
+                      onDatasetHover: {
+                        highlightDataSeries: false,
                       },
-                    }}
-                  />
-                ) : null}
+                    },
+                    grid: {
+                      show: false
+                    },
+                    stroke: {
+                      curve: "smooth",
+                      width: 5,
+                    }
+                  }}
+                /> : null}
+
+                {/* <Chart
+                  type="line"
+                  series={[
+                    {
+                      name: "price",
+                      data: product.t_price,
+                    },
+                  ]}
+                  options={{
+                    chart: {
+                      height: 1,
+                      width: 1,
+                      toolbar: {
+                        show: false,
+                      }
+                    },
+                    xaxis: {
+                      categories: product.t_date
+                    },
+                    grid: {
+                      show: false
+                    },
+                    stroke: {
+                      curve: "smooth",
+                      width: 5,
+                    }
+                  }}
+                /> */}
               </div>
             </div>
           ))}

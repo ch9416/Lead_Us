@@ -4,7 +4,7 @@
     height: 300%;
     padding: 10px;
     align-items: center;
-    
+    width: 360px;
 }
 
 .itemBox {
@@ -13,8 +13,8 @@
     color: whitesmoke;
     display: flex;
     width: 99%;
+    margin: 10px 10px 0px 10px;
     flex-direction: column;
-    margin: 5px;
     border-radius: 20px;
     height: 140px;
 }
@@ -73,3 +73,7 @@
     height: 30px;
 }
 
+.chartBox {
+   width: 100%;
+   height: 100%;
+}

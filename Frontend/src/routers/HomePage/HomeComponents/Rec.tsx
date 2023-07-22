@@ -18,7 +18,7 @@ const RecommendContainer = styled.div`
     height: 300%;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    margin-bottom: 5px;
 `
 
 function Rec() {

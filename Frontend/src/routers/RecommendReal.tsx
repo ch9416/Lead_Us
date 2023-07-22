@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import "./Recommendation.css";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -23,27 +23,25 @@ interface IProduct {
 const RecommendContainer = styled.div`
   width: 100vw;
   height: 300%;
+  overflow: visible;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  margin-top: 20px;
 `;
 
 interface IProduct {
-    category: string,
-    cur_price: string,
-    name: string,
-    img: string,
-    old_price: string,
-    percent: string,
-    return_percent: string,
-    return_price: string,
-    t_price: any,
-    t_date: any,
-    id: string,
+  category: string,
+  cur_price: string,
+  name: string,
+  img: string,
+  old_price: string,
+  percent: string,
+  return_percent: string,
+  return_price: string,
+  t_price: any,
+  t_date: any,
+  id: string,
 }
-
-
-
 
 
 function Recommend() {
@@ -58,47 +56,47 @@ function Recommend() {
 
   useEffect(() => {
     getProducts();
-    
+
   }, []);
 
   return (
-    <div>
-      <h1>hellop</h1>
-      {products.map(product => 
-      <Chart
-    type="line"
-    series={[
-      {
-        name: "price",
-        data: product.t_price,
-      },
-    ]}
-    options={{
-      chart: {
-        height: 100,
-        width: 100,
-        toolbar: {
-          show: false,
-        }
-      },
-      xaxis: {
-        categories: product.t_date
-      },
-      grid: {
-        show: false
-      },
-      stroke: {
-        curve: "smooth",
-        width: 5,
-      }
-    }}
-  />
+    <RecommendContainer>
+      {products.map(product =>
+        
+        <Chart
+          type="line"
+          series={[
+            {
+              name: "price",
+              data: product.t_price,
+            },
+          ]}
+          options={{
+            chart: {
+              height: 50,
+              width: 50,
+              toolbar: {
+                show: false,
+              }
+            },
+            xaxis: {
+              categories: product.t_date
+            },
+            grid: {
+              show: false
+            },
+            stroke: {
+              curve: "smooth",
+              width: 5,
+            }
+          }}
+        />
 
       )}
-      
-    </div>
-    
-    
+
+    </RecommendContainer>
+
+
     // <RecommendContainer>
     //   {loading ? (
     //     <h1>Loading...</h1>
@@ -126,14 +124,14 @@ function Recommend() {
     //             </div>
     //             </SwiperSlide>
     //             )}
-                
+
     //         </div>
-      
+
     // </Swiper>
-      
+
     //   }
     // </RecommendContainer>
-    
+
   );
 }
 

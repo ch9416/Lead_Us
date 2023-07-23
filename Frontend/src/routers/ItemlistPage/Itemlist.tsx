@@ -21,7 +21,7 @@ interface IProduct {
   percent: string;
   return_percent: string;
   return_price: string;
-  t_price: any;
+  t_price: Array<String>;
   t_date: any;
   id: string;
 }
@@ -78,13 +78,13 @@ function Itemlist() {
                 graphOpen
                   ? {
                       height: clickedIndexes.includes(index)
-                        ? "280px"
+                        ? "360px"
                         : "140px",
                       transition: "height 0.3s ease",
                     }
                   : {
                       height: clickedIndexes.includes(index)
-                        ? "280px"
+                        ? "360px"
                         : "140px",
                       transition: "height 0.3s ease",
                     }
@@ -102,20 +102,61 @@ function Itemlist() {
                 <p className="discountRate">{product.percent}</p>
                 <span className="currentPrice">{product.cur_price}원</span>
               </div>
-              <div>
-                {graphOpen ? (
+              <div className="chartBox">
+                {clickedIndexes.includes(index) ? (
                   <Chart
                     type="line"
                     series={[
                       {
                         name: "price",
-                        data: product.t_price,
+                        data: product.t_price.map((item) =>
+                          parseInt(item.replace(/,/g, ""))
+                        ),
                       },
                     ]}
                     options={{
                       chart: {
-                        height: 100,
-                        width: 100,
+                        offsetX: -10,
+                        toolbar: {
+                          show: false,
+                        },
+                      
+                      },
+                      xaxis: {
+                        categories: product.t_date,
+                        axisBorder: {
+                          show: false,
+                        },
+                        labels: {
+                          style: {
+                            colors: "tomato",
+                          },
+                        },
+                      },
+                      yaxis: {
+                        tickAmount: 4,
+                        labels: {
+                          style: {
+                            colors: "tomato",
+                          },
+                        },
+                      },
+                      markers: {
+                        size: 0,
+                        colors: "tomato",
+                        strokeWidth: 0,
+                      },
+                      tooltip: {
+                        enabled: true,
+                      },
+                      grid: {
+                        row: {
+                          opacity: 0.9,
+                        },
+                      },
+                      stroke: {
+                        curve: "smooth",
+                        width: 5,
                       },
                     }}
                   />

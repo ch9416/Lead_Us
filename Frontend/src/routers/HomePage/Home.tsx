@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Base from './HomeComponents/Base';
 import Rec from "./HomeComponents/Rec";
-import RecommendReal from "../RecommendReal";
+import Recommend from "../RecommendReal";
 
 
 const Container = styled.div`
@@ -17,7 +17,7 @@ function Home() {
     <Container>
         <Base />
             <Rec />
-            <RecommendReal />
+            <Recommend />
     </Container>   
     )
     }

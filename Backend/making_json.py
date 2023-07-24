@@ -4,7 +4,7 @@ import json
 from datetime import date
 
 
-conn = pymysql.connect(host='localhost', user='root', password='sk125874!!', db='mydb', charset='utf8')
+conn = pymysql.connect(host='localhost', user='root', password='!aa47287846', db='mydb', charset='utf8')
 cur = conn.cursor()
 item = ["노트북", "스마트폰", "스마트워치", "TV", " 스피커", "헤드폰", "이어폰", "데스크탑", "게이밍", "냉장고", "세탁기", "로봇청소기", "가전/디지털", "키보드", "마우스", "폰악세사리", "PC주변기기", "에어컨", "킥보드"]
 item_en = ["notebook", "smartphone", "smartwatch", "TV", "speaker", "headphone", "earphone", "desktop", "gaming", "refrigerator", "washmachine", "robotcleaner", "digital", "keyboard", "mouse", "phone_acce", "relativePC", "aircon", "kickboard"]
@@ -38,6 +38,7 @@ for i in range(len(item)):
         for z in tim_data:
             data.append(z[0].isoformat())
             d_price.append(z[1])
+        d_price[0] = int(d_price[0].replace(',', ''))
         t_price.append(d_price)
         t_date.append(data)
 

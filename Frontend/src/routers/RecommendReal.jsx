@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import "./Recommendation.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import 'swiper/swiper.min.css';
-
+import "swiper/swiper.min.css";
+import "swiper/swiper-bundle.min.css";
+import "swiper/components/navigation/navigation.min.css";
+import "./Swiper.css";
 
 const RecommendContainer = styled.div`
   width: 100vw;
@@ -14,9 +14,6 @@ const RecommendContainer = styled.div`
   flex-direction: column;
   margin-top: 20px;
 `;
-
-
-
 
 // interface IProduct {
 //   category: string;
@@ -46,24 +43,62 @@ function Recommend() {
     getProducts();
   }, []);
 
+  const swiperStyle = {
+    width: "360px",
+    padding: "10px",
+    margin: "0px"
+    
+  };
+
   return (
     <RecommendContainer>
       {loading ? (
         <h1>Loading...</h1>
-      ) :  <Swiper
-      module={[Pagination]}
-      spaceBetween={50}
-      slidesPerView={1}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      <SwiperSlide>Slide 1</SwiperSlide>
+      ) : (
+        <Swiper
+          style={swiperStyle}
+          spaceBetween={30}
+          effect
+          speed={800}
+          slidesPerView={1}
+          loop
+        >
+          {loading ? (
+            <h1>loading</h1>
+          ) : (
+            <div className="itemContainer">
+              {products.map((product, index) => (
+                <SwiperSlide>
+                  <div className="swiperBox" key={index}>
+                    <div className="itemMainData">
+                      <img
+                        className="itemImg"
+                        src={product.img}
+                        alt="itemImg"
+                      />
+                      <h1 className="itemName">
+                        {product.name}
+                      </h1>
+                    </div>
+                    <div className="itemMetaData">
+                      <p className="originalPrice">{product.old_price}</p>
+                      <p className="discountRate">{product.percent}</p>
+                      <span className="currentPrice">
+                        {product.cur_price}원
+                      </span>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </div>
+          )}
+
+          {/* <SwiperSlide>Slide 1</SwiperSlide>
       <SwiperSlide>Slide 2</SwiperSlide>
       <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      
-    </Swiper> 
-      }
+      <SwiperSlide>Slide 4</SwiperSlide> */}
+        </Swiper>
+      )}
     </RecommendContainer>
   );
 }

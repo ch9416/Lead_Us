@@ -1,0 +1,10 @@
+.swiperBox {
+    background-color: #2b2a4c;
+    padding: 10px;
+    color: whitesmoke;
+    display: flex;
+    width: 97%;
+    flex-direction: column;
+    border-radius: 20px;
+    height: 140px;
+}

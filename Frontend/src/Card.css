@@ -1,79 +1,78 @@
 .itemContainer {
-    display: flex;
-    flex-direction: column;
-    height: 300%;
-    padding: 10px;
-    align-items: center;
-    width: 360px;
+  display: flex;
+  flex-direction: column;
+  height: 300%;
+  padding: 10px;
+  align-items: center;
+  width: 360px;
 }
 
 .itemBox {
-    background-color: #2B2A4C;
-    padding: 10px;
-    color: whitesmoke;
-    display: flex;
-    width: 99%;
-    margin: 10px 10px 0px 10px;
-    flex-direction: column;
-    border-radius: 20px;
-    height: 140px;
+  background-color: #2b2a4c;
+  padding: 10px;
+  color: whitesmoke;
+  display: flex;
+  width: 99%;
+  margin: 10px 10px 0px 10px;
+  flex-direction: column;
+  border-radius: 20px;
+  height: 140px;
 }
 
 .itemMainData {
-    
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  justify-content: space-around;
 }
 
 .itemMetaData {
-    display: flex;
-    font-size: 12px;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  font-size: 12px;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .itemName {
-    text-align: center;
-    width: 70%;
-    height: 70%;
-    padding: 5px;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    line-height: 1.2;
-    border-radius: 20px;
-    margin-right: 7px;
+  text-align: center;
+  width: 70%;
+  height: 70%;
+  padding: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+  border-radius: 20px;
+  margin-right: 7px;
 }
 
 .itemImg {
-    width: 80px;
-    height: 80px;;
-    border-radius: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
 }
 
-.originalPrice  {
-    display: flex;
-    flex-direction: column;
-    height: 50px;
-    border-radius: 20px;
-    align-items: center;
-    justify-content: center;
+.originalPrice {
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
 .currentPrice {
-    background-color: #EA906C;
-    font-size: 25px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2px 15px;
-    height: 30px;
+  background-color: #ea906c;
+  font-size: 25px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2px 15px;
+  height: 30px;
 }
 
 .chartBox {
-   width: 100%;
-   height: 100%;
+  width: 100%;
+  height: 100%;
 }

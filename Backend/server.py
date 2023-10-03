@@ -138,26 +138,19 @@ def kickboard():
     f.close()
     return data
 
-
-@app.route('/search', methods=['GET', 'POST'])
-def search():
-    data = request.get_json()
-    gg = data['data']
-    return redirect(url_for('search2',gg=gg))
-
-
-@app.route('/search/<gg>', methods=['GET', 'POST'])
-def search2(gg):
-
-    return gg
-
-
 @app.route('/chuchun')
 def chuchun():
     f = open("./Jsons/19.json", 'r')
     data = json.load(f)
     f.close()
     return data
+
+@app.route('/manager')
+def manager():
+    f = open("./Jsons/19.json", 'r')
+    data = json.load(f)
+    f.close()
+    return render_template('test.html', data=data)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -33,6 +33,7 @@ function Recommend() {
         console.log(json.slice(0, 10));
         setLoading(false);
     };
+
     
     useEffect(() => {
         getProducts();
@@ -41,8 +42,8 @@ function Recommend() {
     return (  
         <RecommendContainer>
             <Carousel infiniteLoop={true} autoPlay={false} showStatus={false} showThumbs={false} className='carouselBox'>
-                {products.map((product, index) => 
-                    <div className="itemBox" key={index}>
+                {products.map((product, index) =>
+                    <div className="itemBox" key={index}  >
                         <div className="itemMainData">
                             <img className="itemImg" src={product.img} alt="itemImg" />
                             <h1 className="itemName">{product.name}</h1>

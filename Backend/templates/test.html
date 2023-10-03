@@ -10,11 +10,7 @@
             <li>
                 <img src={{ c.img }} />
                 <p>{{ c.name }}<p>
-                <p>{{ c.price }}</p>
-                <p>{{ c.dis }}</p>
-                <form action="" method="POST">
-                    <button type="submit", name='ee', value={{ c.id }}>가격 추이</button>
-                </form>
+                <p>{{ c.cur_price }}</p>
             </li>
         {% endfor %}
     {% else %}

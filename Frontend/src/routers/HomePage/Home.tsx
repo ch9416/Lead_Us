@@ -12,11 +12,11 @@ const Container = styled.div`
     align-items: center;
 `
 
+// 메인홈페이지에서 Rec 제거, Recoomend만 남겨놈 (이게 더 깔끔할 것같아서)
 function Home() {
     return (  
     <Container>
-        <Base />
-            <Rec />
+            <Base />
             <Recommend />
     </Container>   
     )

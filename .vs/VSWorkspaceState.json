@@ -4,8 +4,12 @@
     "\\Frontend",
     "\\Frontend\\src",
     "\\Frontend\\src\\partials",
-    "\\Frontend\\src\\routers"
+    "\\Frontend\\src\\routers",
+    "\\Frontend\\src\\routers\\HomePage",
+    "\\Frontend\\src\\routers\\HomePage\\HomeComponents",
+    "\\Frontend\\src\\routers\\ItemDetailPage",
+    "\\Frontend\\src\\routers\\ItemlistPage"
   ],
-  "SelectedNode": "\\Frontend\\src\\routers\\Home.tsx",
+  "SelectedNode": "\\Frontend\\src\\partials\\Layout.tsx",
   "PreviewInSolutionExplorer": false
 }

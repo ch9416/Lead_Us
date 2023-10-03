@@ -42,8 +42,6 @@ for i in range(len(item)):
         t_price.append(d_price)
         t_date.append(data)
 
-
-
     df = pd.DataFrame(zip(id, name, img, cur_price, old_price, category, percent, return_price, return_percent, t_price, t_date))
     df.columns = ['id', 'name', 'img', 'cur_price', 'old_price', 'category', 'percent', 'return_price', 'return_percent', 't_price', 't_date']
     globals()[item_en[i]+'_js'] = df.to_json(orient='records', force_ascii=False)

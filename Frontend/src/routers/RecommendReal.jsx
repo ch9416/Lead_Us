@@ -13,6 +13,7 @@ const RecommendContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  align-items: center;
 `;
 
 // interface IProduct {
@@ -42,6 +43,20 @@ function Recommend() {
   useEffect(() => {
     getProducts();
   }, []);
+
+  //추천테스트용
+  const [Ctest, setCtest] = useState([]);
+  const getCtest = async () => {
+      const ct = await (await fetch("/chuchun")).json();
+      setCtest(ct);
+      console.log(ct);
+  };
+
+    useEffect(() => {
+        getProducts();
+        //추천테스트용
+        getCtest();
+    }, []);
 
   const swiperStyle = {
     width: "360px",

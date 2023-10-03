@@ -11,6 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException, TimeoutException
 import pymysql
 from flask import Flask, render_template, request
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 # 검색어 입력
@@ -25,6 +26,7 @@ now = time
 cur.execute("truncate now_selling")
 
 for j in item:
+
     chrome_options = Options()
     chrome_options.add_argument("--disable-blink-features=AutomationControlled")
     chrome_options.add_argument("--disable-infobars")
@@ -36,7 +38,7 @@ for j in item:
     chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36")
 
     # 크롬 드라이버 인스턴스 생성
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome(ChromeDriverManager().install())
 
     # 웹페이지 접속
     url = "https://www.coupang.com/np/search?component=&q=" + j
@@ -79,9 +81,13 @@ for j in item:
                     discounted_price_num = int(product_discounted_price.replace(",", "").replace("원", ""))
                     discount_percent = ((original_price_num - discounted_price_num) / original_price_num) * 100
                     discount_percent = round(discount_percent, 2)
+                    # 할인 퍼센트가 30 미만이면 continue
+                    if discount_percent < 30:
+                        continue
                     discount_percent_str = f"{discount_percent}%"
                 else:
                     discount_percent_str = "할인 없음"
+                    continue
 
                 used_product_info_data = []
                 if used_product_info:
